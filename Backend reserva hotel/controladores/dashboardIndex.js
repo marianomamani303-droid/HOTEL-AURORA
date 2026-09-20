@@ -88,7 +88,7 @@ export const verificar_admin = async (req, res) => {
   const { idUsuario } = req.body
 
   try {
-    const [resultado] = await connection.execute(
+    const [resultado] = await conexion.execute(
       "SELECT rol FROM usuario WHERE id = ?",
       [idUsuario]
     )

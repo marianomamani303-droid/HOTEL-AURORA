@@ -29,8 +29,18 @@ function RutaProtegida({ children }) {
 
         const resultado = await respuesta.json()
 
-        setAutorizado(resultado.esAdmin)
+        console.log("ID del usuario:", id)
+        console.log("Respuesta del servidor:", resultado)
+
+        if (!respuesta.ok) {
+          setAutorizado(false)
+          return
+        }
+
+        setAutorizado(resultado.esAdmin === true)
+
       } catch (error) {
+        console.error("Error al verificar administrador:", error)
         setAutorizado(false)
       }
     }

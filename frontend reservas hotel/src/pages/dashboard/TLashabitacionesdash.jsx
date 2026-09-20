@@ -1,11 +1,11 @@
 /* COMPONENTE MOSTRAR HABITACIONES */
 import "../../css/TlasHabitaciones.css"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 function MostrarHabitaciones() {
 
-  const [habitaciones, setHabitaciones] = useState([]);
+  const [habitaciones, setHabitaciones] = useState([])
 
   useEffect(() => {
 
@@ -15,25 +15,24 @@ function MostrarHabitaciones() {
 
         const respuesta = await fetch(
           "http://localhost:3000/ObtenerHabitaciones"
-        );
+        )
 
-        const datos = await respuesta.json();
+        const datos = await respuesta.json()
 
-        setHabitaciones(datos);
+        setHabitaciones(datos)
 
       } catch (error) {
 
-        console.error("Error al obtener habitaciones:", error);
+        console.error("Error al obtener habitaciones:", error)
 
       }
 
     }
 
-    obtenerDatos();
+    obtenerDatos()
 
-  }, []);
+  }, [])
 
-  
 
   return (
     <section className="habitaciones">
@@ -61,7 +60,7 @@ function MostrarHabitaciones() {
 
         {habitaciones.map((habitacion) => (
           <TarjetaHabitacion
-            key={habitacion.id}
+            key={habitacion.id_habitacion}
             habitacion={habitacion}
           />
         ))}
@@ -69,7 +68,7 @@ function MostrarHabitaciones() {
       </div>
 
     </section>
-  );
+  )
 }
 
 
@@ -77,26 +76,38 @@ function MostrarHabitaciones() {
 
 function TarjetaHabitacion({ habitacion }) {
 
-  //ELIMINAR HABITACION
-  async function EliminarHabitacion(){
+  // ELIMINAR HABITACION
+  async function EliminarHabitacion() {
+
     try {
-      const respuesta = await fetch("http://localhost:3000/DeleteHabitacion",{
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body:JSON.stringify({
-          id:habitacion.id_habitacion
-        })
-      })
+
+      const respuesta = await fetch(
+        "http://localhost:3000/DeleteHabitacion",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: habitacion.id_habitacion
+          })
+        }
+      )
 
       const datos = await respuesta.json()
+
       alert(datos.mensaje)
+
       location.reload()
+
     } catch (error) {
-      console.log(error)
+
+      console.error("Error al eliminar habitación:", error)
+
     }
+
   }
+
 
   return (
     <article className="habitacion-card">
@@ -183,33 +194,34 @@ function TarjetaHabitacion({ habitacion }) {
 
         <div className="habitacion-servicios">
 
-          {habitacion.banio_privado && (
-            <span>Baño privado</span>
-          )}
+          <span>
+            Baño privado: {habitacion.banio_privado ? "Sí" : "No"}
+          </span>
 
-          {habitacion.aire_acondicionado && (
-            <span>Aire acondicionado</span>
-          )}
+          <span>
+            Aire acondicionado:{" "}
+            {habitacion.aire_acondicionado ? "Sí" : "No"}
+          </span>
 
-          {habitacion.wifi && (
-            <span>WiFi</span>
-          )}
+          <span>
+            WiFi: {habitacion.wifi ? "Sí" : "No"}
+          </span>
 
-          {habitacion.tv && (
-            <span>TV</span>
-          )}
+          <span>
+            TV: {habitacion.tv ? "Sí" : "No"}
+          </span>
 
-          {habitacion.minibar && (
-            <span>Minibar</span>
-          )}
+          <span>
+            Minibar: {habitacion.minibar ? "Sí" : "No"}
+          </span>
 
-          {habitacion.balcon && (
-            <span>Balcón</span>
-          )}
+          <span>
+            Balcón: {habitacion.balcon ? "Sí" : "No"}
+          </span>
 
-          {habitacion.accesible && (
-            <span>Accesible</span>
-          )}
+          <span>
+            Accesible: {habitacion.accesible ? "Sí" : "No"}
+          </span>
 
         </div>
 
@@ -222,7 +234,10 @@ function TarjetaHabitacion({ habitacion }) {
               Editar
             </button>
 
-            <button className="habitacion-btn-eliminar" onClick={EliminarHabitacion}>
+            <button
+              className="habitacion-btn-eliminar"
+              onClick={EliminarHabitacion}
+            >
               Eliminar
             </button>
 
@@ -233,8 +248,8 @@ function TarjetaHabitacion({ habitacion }) {
       </div>
 
     </article>
-  );
+  )
 }
 
 
-export default MostrarHabitaciones;
+export default MostrarHabitaciones

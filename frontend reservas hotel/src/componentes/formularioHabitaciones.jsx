@@ -94,19 +94,38 @@ function FormularioHabitacion() {
 
       formulario.append(
         "banioPrivado",
-        datos.banioPrivado
+        datos.banioPrivado ? 1 : 0
       );
 
       formulario.append(
         "aireAcondicionado",
-        datos.aireAcondicionado
+        datos.aireAcondicionado ? 1 : 0
       );
 
-      formulario.append("wifi", datos.wifi);
-      formulario.append("tv", datos.tv);
-      formulario.append("minibar", datos.minibar);
-      formulario.append("balcon", datos.balcon);
-      formulario.append("accesible", datos.accesible);
+      formulario.append(
+        "wifi",
+        datos.wifi ? 1 : 0
+      );
+
+      formulario.append(
+        "tv",
+        datos.tv ? 1 : 0
+      );
+
+      formulario.append(
+        "minibar",
+        datos.minibar ? 1 : 0
+      );
+
+      formulario.append(
+        "balcon",
+        datos.balcon ? 1 : 0
+      );
+
+      formulario.append(
+        "accesible",
+        datos.accesible ? 1 : 0
+      );
 
       formulario.append("vista", datos.vista);
       formulario.append("descripcion", datos.descripcion);

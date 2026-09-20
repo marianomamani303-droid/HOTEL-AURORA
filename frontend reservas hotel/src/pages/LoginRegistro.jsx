@@ -1,9 +1,9 @@
-import { useState,useEffect } from "react";
-import "../css/LoginRegistro.css";
-import { useNavigate } from "react-router-dom";
+import "../css/LoginRegistro.css"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function RegistrarseYLogin() {
-  const [mostrarLogin, setMostrarLogin] = useState(true);
+  const [mostrarLogin, setMostrarLogin] = useState(true)
 
   return (
     <>
@@ -17,54 +17,62 @@ function RegistrarseYLogin() {
         />
       )}
     </>
-  );
+  )
 }
 
 function Registrarse({ cambiarLogin }) {
 
-  //guardar datos y enviarlo al backend
-
   const handlesubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const datos = new FormData(e.target);
+    const datos = new FormData(e.target)
 
-    const nombres = datos.get("nombres");
-    const apellidos = datos.get("apellidos");
-    const email = datos.get("email");
-    const password = datos.get("password");
+    const nombres = datos.get("nombres")
+    const apellidos = datos.get("apellidos")
+    const email = datos.get("email")
+    const password = datos.get("password")
 
     try {
-        const respuesta = await fetch("http://localhost:3000/usuariosRegistro", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nombres,
-                apellidos,
-                email,
-                password
-            })
-        });
-
-        const resultado = await respuesta.json();
-
-        if (!respuesta.ok){
-          alert(resultado.mensaje)
-          return
+      const respuesta = await fetch(
+        "http://localhost:3000/usuariosRegistro",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            nombres,
+            apellidos,
+            email,
+            password
+          })
         }
+      )
 
+      const resultado = await respuesta.json()
+
+      if (!respuesta.ok) {
         alert(resultado.mensaje)
-        localStorage.setItem("id",resultado.id)
+        return
+      }
+
+      alert(resultado.mensaje)
+
+      localStorage.setItem("id", resultado.id)
+
+      cambiarLogin()
 
     } catch (error) {
-        console.error(error);
+      console.error("Error al registrarse:", error)
+      alert("Ocurrió un error al registrarse. Intentalo de nuevo.")
     }
-};
+  }
 
   return (
-    <form className="registro-formulario" onSubmit={handlesubmit}>
+    <form
+      className="registro-formulario"
+      onSubmit={handlesubmit}
+    >
 
       <h2>Crear una cuenta</h2>
 
@@ -72,6 +80,7 @@ function Registrarse({ cambiarLogin }) {
 
         <div className="registro-campo">
           <label htmlFor="nombres">Nombres</label>
+
           <input
             id="nombres"
             type="text"
@@ -82,6 +91,7 @@ function Registrarse({ cambiarLogin }) {
 
         <div className="registro-campo">
           <label htmlFor="apellidos">Apellidos</label>
+
           <input
             id="apellidos"
             type="text"
@@ -94,6 +104,7 @@ function Registrarse({ cambiarLogin }) {
 
       <div className="registro-campo">
         <label htmlFor="registro-email">Email</label>
+
         <input
           id="registro-email"
           type="email"
@@ -103,7 +114,10 @@ function Registrarse({ cambiarLogin }) {
       </div>
 
       <div className="registro-campo">
-        <label htmlFor="registro-password">Contraseña</label>
+        <label htmlFor="registro-password">
+          Contraseña
+        </label>
+
         <input
           id="registro-password"
           type="password"
@@ -132,65 +146,75 @@ function Registrarse({ cambiarLogin }) {
       </div>
 
     </form>
-  );
+  )
 }
 
 function Login({ cambiarRegistro }) {
 
   const navigate = useNavigate()
 
-const FormCompletado = async (e) => {
-  e.preventDefault()
+  const FormCompletado = async (e) => {
+    e.preventDefault()
 
-  const datos = new FormData(e.target)
+    const datos = new FormData(e.target)
 
-  const email = datos.get("email")
-  const password = datos.get("password")
+    const email = datos.get("email")
+    const password = datos.get("password")
 
-  try {
-    const respuesta = await fetch("http://localhost:3000/usuariosLogin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email,
-        password
-      })
-    })
+    try {
+      const respuesta = await fetch(
+        "http://localhost:3000/usuariosLogin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email,
+            password
+          })
+        }
+      )
 
-    const resultado = await respuesta.json()
+      const resultado = await respuesta.json()
 
-    console.log(resultado)
+      if (!respuesta.ok) {
+        alert(resultado.mensaje)
+        return
+      }
 
-    if (!respuesta.ok) {
+      localStorage.setItem("id", resultado.id)
+      localStorage.setItem("rol", resultado.rol)
+
       alert(resultado.mensaje)
-      return
+
+      if (resultado.rol === "admin") {
+        navigate("/dashboard")
+        return
+      }
+
+      navigate("/")
+
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error)
+
+      alert(
+        "Ocurrió un error al iniciar sesión. Intentalo de nuevo."
+      )
     }
-
-    localStorage.setItem("id", resultado.id)
-    localStorage.setItem("rol", resultado.rol)
-
-    alert(resultado.mensaje)
-
-    if (resultado.rol === "admin") {
-      navigate("/Dashboard")
-      return
-    }
-
-    navigate("/")
-  } catch (error) {
-    console.error("Error al iniciar sesión:", error)
-    alert("Ocurrió un error al iniciar sesión. Intentalo de nuevo.")
   }
-}
+
   return (
-    <form className="login-formulario" onSubmit={FormCompletado}>
+    <form
+      className="login-formulario"
+      onSubmit={FormCompletado}
+    >
 
       <h2>Iniciar sesión</h2>
 
       <div className="login-campo">
         <label htmlFor="login-email">Email</label>
+
         <input
           id="login-email"
           type="email"
@@ -200,7 +224,10 @@ const FormCompletado = async (e) => {
       </div>
 
       <div className="login-campo">
-        <label htmlFor="login-password">Contraseña</label>
+        <label htmlFor="login-password">
+          Contraseña
+        </label>
+
         <input
           id="login-password"
           type="password"
@@ -232,7 +259,4 @@ const FormCompletado = async (e) => {
   )
 }
 
-
-
-
-export default RegistrarseYLogin;
+export default RegistrarseYLogin
