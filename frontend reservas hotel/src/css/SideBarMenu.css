@@ -1,0 +1,193 @@
+/* SIDEBAR */
+
+.side-bar {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: var(--ancho-sidebar);
+  height: 100vh;
+
+  padding: var(--espacio-8) var(--espacio-6);
+
+  box-sizing: border-box;
+
+  background-color: var(--color-fondo-terciario);
+
+  border-left: var(--ancho-borde) solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: -0.5rem 0 2rem rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 1000;
+
+  transition: transform var(--transicion-normal);
+}
+
+
+/* LISTA */
+
+.lista-de-menu {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--espacio-1);
+
+  width: 100%;
+
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* ELEMENTOS */
+
+.elemento-de-menu {
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* LINKS */
+
+.elemento-de-menu a {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  padding: var(--espacio-3) var(--espacio-4);
+
+  box-sizing: border-box;
+
+  border-radius: var(--radio-lg);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  font-size: var(--tamano-sm);
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+/* HOVER */
+
+.elemento-de-menu a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+
+  color: var(--color-principal);
+
+  padding-left: var(--espacio-5);
+}
+
+
+/* CERRAR SESIÓN */
+
+.cerrar-sesion {
+  width: 100%;
+
+  margin-top: auto;
+
+  padding-top: var(--espacio-4);
+}
+
+
+/* BOTÓN */
+
+.boton-contorno {
+  width: 100%;
+
+  min-height: var(--altura-boton-md);
+  padding: 0 var(--espacio-4);
+
+  border: var(--ancho-borde) solid var(--color-principal);
+
+  border-radius: var(--radio-lg);
+
+  background-color: transparent;
+
+  color: var(--color-principal);
+
+  font: inherit;
+
+  font-size: var(--tamano-sm);
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* HOVER BOTÓN */
+
+.boton-contorno:hover {
+  background-color: var(--color-principal);
+
+  color: white;
+}
+
+
+/* CLICK */
+
+.boton-contorno:active {
+  transform: scale(0.98);
+}
+
+
+/* MOSTRAR / OCULTAR */
+
+.mostrar {
+  transform: translateX(0);
+}
+
+.no-mostrar {
+  transform: translateX(100%);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .side-bar {
+    width: var(--ancho-sidebar-tablet);
+
+    padding: var(--espacio-6) var(--espacio-4);
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .side-bar {
+    width: 100%;
+  }
+
+}

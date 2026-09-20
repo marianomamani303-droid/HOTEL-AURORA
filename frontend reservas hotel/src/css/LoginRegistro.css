@@ -1,0 +1,198 @@
+/* FORMULARIOS */
+
+.registro-formulario,
+.login-formulario {
+  width: 100%;
+  margin: var(--espacio-12) auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-5);
+}
+
+
+/* REGISTRO */
+
+.registro-formulario {
+  max-width: 520px;
+}
+
+.registro-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+}
+
+
+/* LOGIN */
+
+.login-formulario {
+  max-width: 420px;
+}
+
+
+/* TITULOS */
+
+.registro-formulario h2,
+.login-formulario h2 {
+  margin: 0;
+
+  color: var(--color-texto);
+
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  font-weight: var(--peso-semi-negrita);
+
+  text-align: center;
+}
+
+
+/* CAMPOS */
+
+.registro-campo,
+.login-campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.registro-campo label,
+.login-campo label {
+  color: var(--color-texto);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+}
+
+
+/* INPUTS */
+
+.registro-campo input,
+.login-campo input {
+  width: 100%;
+  height: var(--altura-input);
+
+  padding: 0 var(--relleno-input-x);
+  box-sizing: border-box;
+
+  background: var(--fondo-input);
+
+  border: var(--ancho-borde) solid var(--borde-input);
+  border-radius: var(--radio-md);
+
+  color: var(--color-texto);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-md);
+
+  outline: none;
+
+  transition: var(--transicion-normal);
+}
+
+.registro-campo input:hover,
+.login-campo input:hover {
+  border-color: var(--color-borde-oscuro);
+}
+
+.registro-campo input:focus,
+.login-campo input:focus {
+  border-color: var(--input-enfoque);
+
+  box-shadow: var(--sombra-enfoque);
+}
+
+
+/* BOTONES */
+
+.registro-boton,
+.login-boton {
+  width: 100%;
+  height: var(--altura-boton-md);
+
+  margin-top: var(--espacio-2);
+  padding: 0 var(--relleno-boton-x);
+
+  border: none;
+  border-radius: var(--radio-md);
+
+  background: var(--color-principal);
+  color: var(--color-texto-sobre-principal);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-md);
+  font-weight: var(--peso-semi-negrita);
+
+  cursor: pointer;
+
+  transition: var(--transicion-normal);
+}
+
+.registro-boton:hover,
+.login-boton:hover {
+  background: var(--color-principal-oscuro);
+}
+
+.registro-boton:active,
+.login-boton:active {
+  transform: translateY(1px);
+}
+
+
+/* ENLACES */
+
+.registro-login,
+.login-registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espacio-2);
+
+  margin-top: var(--espacio-2);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+}
+
+.registro-login span,
+.login-registro span {
+  color: var(--color-texto-secundario);
+}
+
+.registro-login-boton,
+.login-registro-boton {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--color-principal);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+
+  cursor: pointer;
+
+  transition: var(--transicion-rapida);
+}
+
+.registro-login-boton:hover,
+.login-registro-boton:hover {
+  color: var(--color-principal-oscuro);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .registro-campos {
+    grid-template-columns: 1fr;
+  }
+  .registro-formulario,
+  .login-formulario {
+    margin: var(--espacio-6) auto;
+    padding: var(--espacio-6);
+  }
+}

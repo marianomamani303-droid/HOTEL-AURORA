@@ -1,0 +1,424 @@
+.hero {
+    min-height: 30rem;
+    background-image: url("../assets/pexels-amar-13047563.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-header {
+    width: 100%;
+    min-height: 30rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: var(--espacio-8) var(--relleno-seccion-horizontal);
+
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.48);
+}
+
+.hero h2,
+.hero h4 {
+    color: var(--color-texto-claro);
+}
+
+.hero p {
+    max-width: 42rem;
+    margin: 0;
+    color: #dddede;
+    font-style: italic;
+}
+
+.botones-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--espacio-3);
+}
+
+
+/* =========================
+   CONOCE NUESTRO HOTEL
+   ========================= */
+
+.conoce-hotel {
+    width: 100%;
+    max-width: var(--contenedor-xl);
+
+    margin: var(--espacio-20) auto;
+    padding: 0 var(--relleno-seccion-horizontal);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--espacio-16);
+}
+
+.contenedor-imagen {
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.conoce-hotel .imagen {
+    width: 100%;
+    max-width: 550px;
+    aspect-ratio: 11 / 8;
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+    border-radius: var(--radio-xl);
+}
+
+.contenedor-informacion {
+    width: 50%;
+    max-width: 500px;
+
+    text-align: center;
+}
+
+.conoce-hotel .contenedor-informacion h2 {
+    margin-bottom: var(--espacio-5);
+
+    color: var(--color-texto);
+    font-size: var(--tamano-2xl);
+    line-height: 1.2;
+}
+
+.conoce-hotel .contenedor-informacion p {
+    margin-bottom: var(--espacio-8);
+
+    color: var(--color-texto-secundario);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.conoce-hotel .contenedor-informacion .boton {
+    min-height: var(--altura-boton-md);
+}
+
+
+/* =========================
+   HABITACIONES
+   ========================= */
+
+.habitaciones-destacadas {
+    width: 100%;
+    padding: var(--espacio-8) var(--relleno-seccion-horizontal) var(--espacio-20);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: var(--espacio-8);
+}
+
+.habitaciones-header {
+    text-align: center;
+}
+
+.habitaciones-header h2 {
+    margin-bottom: var(--espacio-2);
+
+    color: var(--color-texto);
+}
+
+.habitaciones-header p {
+    color: var(--color-texto-secundario);
+}
+
+.habitaciones-grid {
+    width: 100%;
+    max-width: var(--contenedor-xl);
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+
+    gap: var(--espacio-8);
+}
+
+.habitaciones-grid .habitacion-card {
+    width: 100%;
+    min-width: 0;
+
+    padding: var(--relleno-tarjeta);
+
+    background-color: var(--color-fondo);
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: var(--sombra-tarjeta);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.habitaciones-grid .habitacion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-md);
+}
+
+.habitaciones-grid .habitacion-imagen {
+    width: 100%;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 10;
+
+    border-radius: var(--radio-imagen);
+}
+
+.habitaciones-grid .habitacion-imagen .imagen {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform var(--transicion-lenta);
+}
+
+.habitaciones-grid .habitacion-card:hover .habitacion-imagen .imagen {
+    transform: scale(1.03);
+}
+
+.habitaciones-grid .habitacion-info h3 {
+    margin-bottom: var(--espacio-2);
+
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.habitaciones-grid .habitacion-info {
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+
+    padding-top: var(--espacio-5);
+}
+
+.habitaciones-grid .habitacion-info p {
+    min-height: calc(3 * 1.7em);
+
+    color: var(--color-texto-secundario);
+
+    text-align: center;
+}
+
+.habitaciones-grid .habitacion-footer {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: auto;
+
+    gap: var(--espacio-4);
+    padding-top: var(--espacio-5);
+
+    border-top: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.habitaciones-grid .habitacion-precio {
+    color: var(--color-principal-oscuro);
+
+    font-size: var(--tamano-lg);
+    font-weight: var(--peso-negrita);
+
+    white-space: nowrap;
+}
+
+.habitaciones-grid .habitacion-precio small {
+    color: var(--color-texto-apagado);
+
+    font-size: var(--tamano-xs);
+    font-weight: var(--peso-normal);
+}
+
+
+/* =========================
+   SERVICIOS
+   ========================= */
+
+.servicios {
+    padding: var(--espacio-20) var(--relleno-seccion-horizontal);
+
+    background-color: var(--color-superficie-hover);
+}
+
+.servicios-header {
+    margin-bottom: var(--espacio-12);
+
+    text-align: center;
+}
+
+.servicios-header h2 {
+    margin-bottom: 0.8rem;
+
+    color: var(--color-texto);
+    text-transform: capitalize;
+}
+
+.servicios-header p {
+    color: var(--color-texto-secundario);
+
+    font-size: 1rem;
+}
+
+.servicios-grid {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: var(--espacio-6);
+}
+
+.servicio-card {
+    padding: var(--espacio-4);
+
+    text-align: center;
+}
+
+.servicio-imagen {
+    width: 100%;
+
+    min-height: 12rem;
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    border-radius: var(--radio-imagen);
+}
+
+.servicio-imagen .imagen {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.servicio-card h3 {
+    margin: var(--espacio-4) 0 var(--espacio-2);
+
+    font-size: 1.5rem;
+}
+
+.servicio-card p {
+    margin: 0;
+
+    color: var(--color-texto-secundario);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .habitaciones-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: var(--espacio-6);
+    }
+
+    .servicios-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .servicio-imagen {
+        min-height: 11rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .conoce-hotel {
+        flex-direction: column;
+
+        gap: var(--espacio-10);
+
+        margin: var(--espacio-12) auto;
+        padding: 0 var(--relleno-seccion-horizontal);
+    }
+
+    .contenedor-imagen,
+    .contenedor-informacion {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .conoce-hotel .imagen {
+        aspect-ratio: 2 / 1;
+    }
+
+    .contenedor-informacion h2 {
+        font-size: 1.8rem;
+    }
+
+    .habitaciones-grid {
+        grid-template-columns: 1fr;
+
+        max-width: 30rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 28rem;
+    }
+
+    .botones-header {
+        flex-direction: column;
+
+        width: 90%;
+        max-width: 20rem;
+    }
+
+    .habitaciones-grid .habitacion-card {
+        padding: var(--espacio-5);
+    }
+
+    .habitaciones-grid .habitacion-info p {
+        min-height: 0;
+    }
+
+    .servicios {
+        padding: var(--espacio-16) var(--espacio-4);
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicio-card {
+        padding: var(--espacio-6) var(--espacio-4);
+    }
+
+    .servicio-imagen {
+        min-height: 13rem;
+        aspect-ratio: 16 / 9;
+    }
+}

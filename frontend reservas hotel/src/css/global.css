@@ -1,0 +1,466 @@
+/* =====================================================
+   RESET
+   Elimina los estilos predeterminados del navegador
+   para trabajar con una base consistente.
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-md);
+  font-weight: var(--peso-normal);
+  line-height: var(--altura-linea-normal);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   TIPOGRAFÍA
+   Define los estilos generales de títulos y textos.
+===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-texto);
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-normal);
+  line-height: var(--altura-linea-ajustada);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--tamano-5xl);
+}
+
+h2 {
+  font-size: var(--tamano-4xl);
+}
+
+h3 {
+  font-size: var(--tamano-3xl);
+}
+
+h4 {
+  font-size: var(--tamano-2xl);
+}
+
+h5 {
+  font-size: var(--tamano-xl);
+}
+
+h6 {
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-lg);
+  font-weight: var(--peso-semi-negrita);
+}
+
+p {
+  color: var(--color-texto-secundario);
+  line-height: var(--altura-linea-relajada);
+}
+
+
+/* =====================================================
+   ENLACES
+   Define el comportamiento general de los enlaces.
+===================================================== */
+
+a {
+  transition: color var(--transicion-normal);
+}
+
+a:hover {
+  color: var(--color-principal);
+}
+
+
+/* =====================================================
+   CONTENEDOR
+   Mantiene el contenido centrado y limita su ancho
+   en pantallas grandes.
+===================================================== */
+
+.contenedor {
+  width: min(calc(100% - 2 * var(--relleno-seccion-horizontal)), var(--contenedor-xl));
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   SECCIONES
+   Define el espaciado vertical y horizontal general
+   de las secciones de la página.
+===================================================== */
+
+.seccion {
+  padding:
+    var(--relleno-seccion-vertical)
+    var(--relleno-seccion-horizontal);
+}
+
+
+/* =====================================================
+   BOTONES
+   Estilo base que compartirán todos los botones.
+===================================================== */
+
+.boton {
+  min-height: var(--altura-boton-md);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 var(--relleno-boton-x);
+
+  border-radius: var(--radio-sm);
+
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-medio);
+  line-height: 1;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transicion-normal),
+    color var(--transicion-normal),
+    border-color var(--transicion-normal),
+    transform var(--transicion-normal);
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+}
+
+.boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+
+/* =====================================================
+   BOTÓN PRINCIPAL
+   Para acciones importantes como "Reservar".
+===================================================== */
+
+.boton-principal {
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
+}
+
+.boton-principal:hover {
+  background-color: var(--color-principal-oscuro);
+}
+
+
+/* =====================================================
+   BOTÓN SECUNDARIO
+   Para acciones secundarias.
+===================================================== */
+
+.boton-secundario {
+  background-color: var(--color-secundario);
+  color: var(--color-texto-claro);
+}
+
+.boton-secundario:hover {
+  background-color: var(--color-secundario-oscuro);
+}
+
+
+/* =====================================================
+   BOTÓN CON BORDE
+   Para acciones que no necesitan un fondo sólido.
+===================================================== */
+
+.boton-contorno {
+  background-color: transparent;
+  color: var(--color-principal);
+
+  border:
+    var(--ancho-borde)
+    solid
+    var(--color-principal);
+}
+
+.boton-contorno:hover {
+  background-color: var(--color-principal);
+  color: var(--color-texto-claro);
+}
+
+
+/* =====================================================
+   INPUTS
+   Estilos generales para formularios, búsqueda,
+   login, registro y reservas.
+===================================================== */
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-height: var(--altura-input);
+
+  padding: 0 var(--relleno-input-x);
+
+  background-color: var(--fondo-input);
+  color: var(--color-texto);
+
+  border:
+    var(--ancho-borde)
+    solid
+    var(--borde-input);
+
+  border-radius: var(--radio-sm);
+
+  outline: none;
+
+  transition:
+    border-color var(--transicion-normal),
+    box-shadow var(--transicion-normal);
+}
+
+textarea {
+  min-height: 120px;
+  padding-top: var(--espacio-3);
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-texto-apagado);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--input-enfoque);
+
+  box-shadow: var(--sombra-enfoque);
+}
+
+
+/* =====================================================
+   TARJETAS
+   Estilo base para habitaciones, servicios,
+   opiniones y otros elementos similares.
+===================================================== */
+
+.tarjeta {
+  background-color: var(--color-superficie);
+
+  border:
+    var(--ancho-borde)
+    solid
+    var(--color-borde-claro);
+
+  border-radius: var(--radio-tarjeta);
+
+  box-shadow: var(--sombra-tarjeta);
+}
+
+
+/* =====================================================
+   IMÁGENES
+   Hace que las imágenes ocupen correctamente
+   el espacio disponible.
+===================================================== */
+
+.imagen {
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+
+  border-radius: var(--radio-imagen);
+}
+
+
+/* =====================================================
+   TÍTULO DE SECCIÓN
+   Estructura reutilizable para secciones como:
+   "Habitaciones", "Servicios", "Opiniones", etc.
+===================================================== */
+
+.titulo-seccion {
+  max-width: 700px;
+  margin-bottom: var(--espacio-8);
+}
+
+.titulo-seccion h2 {
+  margin-bottom: var(--espacio-3);
+}
+
+.titulo-seccion p {
+  max-width: 600px;
+}
+
+
+/* =====================================================
+   ETIQUETA
+   Texto pequeño que aparece encima de títulos.
+   Ejemplo: "NUESTRO HOTEL".
+===================================================== */
+
+.etiqueta {
+  display: inline-block;
+
+  margin-bottom: var(--espacio-3);
+
+  color: var(--color-principal);
+
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   DIVISOR
+   Línea decorativa para separar visualmente contenido.
+===================================================== */
+
+.divisor {
+  width: 60px;
+  height: 1px;
+
+  margin: var(--espacio-4) 0;
+
+  background-color: var(--color-principal);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   Adaptaciones para tablets y celulares.
+===================================================== */
+
+@media (max-width: 1024px) {
+
+  h1 {
+    font-size: var(--tamano-4xl);
+  }
+
+  h2 {
+    font-size: var(--tamano-3xl);
+  }
+
+  h3 {
+    font-size: var(--tamano-2xl);
+  }
+
+  .seccion {
+    padding-top: var(--espacio-16);
+    padding-bottom: var(--espacio-16);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .seccion {
+    padding-top: var(--espacio-16);
+    padding-bottom: var(--espacio-16);
+  }
+
+  h1 {
+    font-size: var(--tamano-3xl);
+  }
+
+  h2 {
+    font-size: var(--tamano-2xl);
+  }
+
+  h3 {
+    font-size: var(--tamano-xl);
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: var(--tamano-2xl);
+  }
+
+  h2 {
+    font-size: var(--tamano-xl);
+  }
+
+  .boton {
+    min-height: var(--altura-boton-sm);
+  }
+}
+
+
+/* =====================================================
+   ACCESIBILIDAD
+   Hace visible el elemento seleccionado cuando el
+   usuario navega mediante teclado.
+===================================================== */
+
+:focus-visible {
+  outline:
+    2px solid
+    var(--color-principal);
+
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

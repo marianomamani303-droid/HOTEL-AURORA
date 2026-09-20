@@ -1,0 +1,475 @@
+/* HABITACIONES */
+
+.habitaciones {
+  width: 100%;
+  max-width: var(--contenedor-2xl);
+  margin: 0 auto;
+  padding: var(--espacio-8) var(--relleno-seccion-horizontal);
+}
+
+
+/* ENCABEZADO */
+
+.habitaciones-encabezado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-6);
+}
+
+.habitaciones-subtitulo {
+  margin: 0 0 var(--espacio-1);
+  color: var(--color-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.habitaciones-titulo {
+  margin: 0;
+  color: var(--color-texto);
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  font-weight: var(--peso-semi-negrita);
+  line-height: 1.1;
+}
+
+.habitaciones-cantidad {
+  display: flex;
+  align-items: center;
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+}
+
+
+/* LISTA */
+
+.habitaciones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-5);
+}
+
+
+/* TARJETA */
+
+.habitacion-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  min-height: 300px;
+
+  background: var(--color-fondo-secundario);
+
+  border: var(--ancho-borde) solid var(--color-borde-claro);
+  border-radius: var(--radio-lg);
+
+  overflow: hidden;
+
+  box-shadow: none;
+
+  transition:
+    transform var(--transicion-normal),
+    border-color var(--transicion-normal),
+    box-shadow var(--transicion-normal);
+}
+
+.habitacion-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-borde);
+  box-shadow: var(--sombra-md);
+}
+
+
+/* IMAGEN */
+
+.habitacion-card-imagen {
+  position: relative;
+
+  min-height: 300px;
+
+  background: var(--color-fondo-terciario);
+
+  overflow: hidden;
+}
+
+.habitacion-card-imagen img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform var(--transicion-lenta);
+}
+
+.habitacion-card:hover .habitacion-card-imagen img {
+  transform: scale(1.035);
+}
+
+
+/* ESTADO */
+
+.habitacion-estado {
+  position: absolute;
+
+  top: var(--espacio-4);
+  left: var(--espacio-4);
+
+  padding: var(--espacio-1) var(--espacio-3);
+
+  color: var(--color-exito);
+  background: rgba(229, 241, 233, 0.94);
+
+  border: 1px solid rgba(63, 125, 88, 0.12);
+  border-radius: var(--radio-completo);
+
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+
+  line-height: 1;
+
+  backdrop-filter: blur(6px);
+}
+
+
+/* CONTENIDO */
+
+.habitacion-card-contenido {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: var(--espacio-6);
+}
+
+
+/* HEADER */
+
+.habitacion-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--espacio-5);
+
+  padding-bottom: var(--espacio-4);
+
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.habitacion-card-numero {
+  margin: 0 0 5px;
+
+  color: var(--color-principal);
+
+  font-size: 0.68rem;
+  font-weight: var(--peso-semi-negrita);
+
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.habitacion-card-title {
+  margin: 0;
+
+  color: var(--color-texto);
+
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-semi-negrita);
+
+  line-height: 1.15;
+}
+
+
+/* PRECIO */
+
+.habitacion-card-precio {
+  display: flex;
+  align-items: baseline;
+
+  gap: var(--espacio-1);
+
+  color: var(--color-principal-oscuro);
+
+  font-size: var(--tamano-lg);
+  font-weight: var(--peso-negrita);
+
+  white-space: nowrap;
+}
+
+.habitacion-card-precio small {
+  color: var(--color-texto-apagado);
+
+  font-size: 0.7rem;
+  font-weight: var(--peso-normal);
+}
+
+
+/* DESCRIPCION */
+
+.habitacion-card-descripcion {
+  max-width: 720px;
+
+  margin: var(--espacio-4) 0;
+
+  color: var(--color-texto-secundario);
+
+  font-size: var(--tamano-sm);
+  line-height: 1.65;
+}
+
+
+/* DATOS */
+
+.habitacion-datos {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: var(--ancho-borde) solid var(--color-borde-claro);
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.habitacion-dato {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--espacio-1);
+
+  min-width: 0;
+
+  padding: var(--espacio-4) var(--espacio-3);
+}
+
+.habitacion-dato:first-child {
+  padding-left: 0;
+}
+
+.habitacion-dato span {
+  color: var(--color-texto-apagado);
+
+  font-size: 0.65rem;
+  font-weight: var(--peso-medio);
+
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.habitacion-dato strong {
+  overflow: hidden;
+
+  color: var(--color-texto);
+
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* SERVICIOS */
+
+.habitacion-servicios {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--espacio-2);
+
+  margin-top: var(--espacio-4);
+}
+
+.habitacion-servicios span {
+  padding: var(--espacio-1) var(--espacio-2);
+
+  color: var(--color-texto-secundario);
+
+  background: transparent;
+
+  border: var(--ancho-borde) solid var(--color-borde-claro);
+  border-radius: var(--radio-sm);
+
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+
+/* FOOTER */
+
+.habitacion-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: auto;
+  padding-top: var(--espacio-4);
+}
+
+
+/* ACCIONES */
+
+.habitacion-acciones {
+  display: flex;
+
+  gap: var(--espacio-2);
+}
+
+.habitacion-acciones button {
+  height: 34px;
+
+  padding: 0 13px;
+
+  border-radius: var(--radio-md);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+
+  cursor: pointer;
+
+  transition:
+    color var(--transicion-rapida),
+    background var(--transicion-rapida),
+    border-color var(--transicion-rapida);
+}
+
+
+/* EDITAR */
+
+.habitacion-btn-editar {
+  color: var(--color-principal-oscuro);
+
+  background: transparent;
+
+  border: var(--ancho-borde) solid var(--color-borde);
+}
+
+.habitacion-btn-editar:hover {
+  color: var(--color-texto-claro);
+
+  background: var(--color-principal);
+
+  border-color: var(--color-principal);
+}
+
+
+/* ELIMINAR */
+
+.habitacion-btn-eliminar {
+  color: var(--color-peligro);
+
+  background: transparent;
+
+  border: var(--ancho-borde) solid var(--color-borde);
+}
+
+.habitacion-btn-eliminar:hover {
+  color: var(--color-texto-claro);
+
+  background: var(--color-peligro);
+
+  border-color: var(--color-peligro);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+  .habitacion-card {
+    grid-template-columns: 280px 1fr;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .habitacion-card {
+    grid-template-columns: 1fr;
+  }
+
+  .habitacion-card-imagen {
+    min-height: 260px;
+  }
+
+  .habitacion-datos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .habitaciones {
+    padding: var(--espacio-6) var(--espacio-4);
+  }
+
+  .habitaciones-encabezado {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: var(--espacio-2);
+  }
+
+  .habitacion-card-header {
+    flex-direction: column;
+
+    gap: var(--espacio-3);
+  }
+
+  .habitacion-card-precio {
+    font-size: var(--tamano-md);
+  }
+
+  .habitacion-datos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .habitacion-dato:first-child {
+    padding-left: var(--espacio-3);
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .habitaciones {
+    padding: var(--espacio-5) var(--espacio-3);
+  }
+
+  .habitacion-card-contenido {
+    padding: var(--espacio-5);
+  }
+
+  .habitacion-card-imagen {
+    min-height: 220px;
+  }
+
+  .habitacion-datos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .habitacion-servicios {
+    gap: 5px;
+  }
+
+  .habitacion-card-footer {
+    justify-content: stretch;
+  }
+
+  .habitacion-acciones {
+    width: 100%;
+  }
+
+  .habitacion-acciones button {
+    flex: 1;
+  }
+
+}

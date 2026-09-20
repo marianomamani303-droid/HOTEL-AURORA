@@ -1,0 +1,507 @@
+/* DASHBOARD */
+
+.dashboard {
+  min-height: 100vh;
+  padding: var(--espacio-8);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  box-sizing: border-box;
+}
+
+
+/* ENCABEZADO */
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: var(--espacio-8);
+}
+
+.dashboard-header h1 {
+  margin: 0 0 var(--espacio-2);
+  color: var(--color-secundario);
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-3xl);
+  font-weight: var(--peso-negrita);
+  line-height: var(--altura-linea-ajustada);
+  letter-spacing: -0.5px;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-md);
+  font-weight: var(--peso-medio);
+}
+
+.dashboard-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-1);
+  margin-top: var(--espacio-4);
+  padding: var(--espacio-2) var(--espacio-4);
+  border: var(--ancho-borde) solid var(--color-borde);
+  background: var(--color-superficie);
+  border-radius: var(--radio-sm);
+}
+
+.dashboard-date span {
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+.dashboard-date strong {
+  color: var(--color-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+}
+
+
+/* ESTADÍSTICAS */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espacio-4);
+  margin-bottom: var(--espacio-6);
+}
+
+.stat-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--espacio-3);
+  padding: var(--relleno-tarjeta);
+  background: var(--color-superficie);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra-tarjeta);
+  transition:
+    transform var(--transicion-normal),
+    box-shadow var(--transicion-normal),
+    border-color var(--transicion-normal);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-principal);
+  border-radius: var(--radio-xs) 0 0 var(--radio-xs);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-borde-oscuro);
+  box-shadow: var(--sombra-md);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--color-fondo-secundario);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-xs);
+  font-size: var(--tamano-lg);
+}
+
+.stat-card > div {
+  align-self: center;
+}
+
+.stat-card p {
+  margin: 0 0 var(--espacio-1);
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+}
+
+.stat-card h2 {
+  margin: 0;
+  color: var(--color-secundario);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-negrita);
+  line-height: var(--altura-linea-ajustada);
+}
+
+.stat-card small {
+  grid-column: 2;
+  margin-top: var(--espacio-2);
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+
+/* CONTENIDO */
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--espacio-5);
+  margin-bottom: var(--espacio-5);
+}
+
+
+/* PANELES */
+
+.dashboard-panel {
+  overflow: hidden;
+  background: var(--color-superficie);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.panel-header h2 {
+  margin: 0 0 var(--espacio-1);
+  color: var(--color-secundario);
+  font-size: var(--tamano-lg);
+  font-weight: var(--peso-semi-negrita);
+}
+
+.panel-header p {
+  margin: 0;
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-medio);
+}
+
+.panel-header button {
+  min-height: var(--altura-boton-sm);
+  padding: 0 var(--espacio-3);
+  background: var(--color-superficie);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-xs);
+  color: var(--color-principal-oscuro);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+  cursor: pointer;
+  transition:
+    background-color var(--transicion-rapida),
+    border-color var(--transicion-rapida),
+    color var(--transicion-rapida);
+}
+
+.panel-header button:hover {
+  background: var(--color-fondo-secundario);
+  border-color: var(--color-principal-claro);
+  color: var(--color-principal-oscuro);
+}
+
+
+/* OCUPACIÓN */
+
+.occupancy-content {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-8);
+  padding: var(--espacio-8) var(--espacio-6);
+}
+
+.occupancy-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 135px;
+  height: 135px;
+  flex-shrink: 0;
+  border: 10px solid var(--color-principal);
+  border-radius: var(--radio-completo);
+  background: var(--color-superficie);
+}
+
+.occupancy-circle strong {
+  color: var(--color-secundario);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-negrita);
+}
+
+.occupancy-circle span {
+  margin-top: var(--espacio-1);
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+.occupancy-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--espacio-4);
+}
+
+.occupancy-info > div {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  align-items: center;
+  gap: var(--espacio-2);
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-medio);
+}
+
+.occupancy-info strong {
+  color: var(--color-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+}
+
+.room-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radio-completo);
+}
+
+.room-dot.available {
+  background: var(--color-exito);
+}
+
+.room-dot.occupied {
+  background: var(--color-peligro);
+}
+
+.room-dot.maintenance {
+  background: var(--color-advertencia);
+}
+
+
+/* PRÓXIMAS RESERVAS */
+
+.mini-reservations {
+  padding: var(--espacio-2) var(--espacio-5);
+}
+
+.mini-reservation {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4) 0;
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.mini-reservation:last-child {
+  border-bottom: none;
+}
+
+.client-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  background: var(--color-principal);
+  border-radius: var(--radio-xs);
+  color: var(--color-texto-sobre-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+}
+
+.mini-reservation > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  flex: 1;
+}
+
+.mini-reservation strong {
+  color: var(--color-texto);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+}
+
+.mini-reservation span {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+.mini-reservation > small {
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+}
+
+
+/* ACTIVIDAD */
+
+.activity-panel {
+  width: 100%;
+}
+
+.activity-list {
+  padding: var(--espacio-2) var(--espacio-5);
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4) 0;
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  background: var(--color-fondo-secundario);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-xs);
+  font-size: var(--tamano-sm);
+}
+
+.activity-item > div:nth-child(2) {
+  flex: 1;
+}
+
+.activity-item strong {
+  display: block;
+  margin-bottom: var(--espacio-1);
+  color: var(--color-texto);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+}
+
+.activity-item p {
+  margin: 0;
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+.activity-item > small {
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+}
+
+
+.sidebar-dash{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  margin: var(--espacio-4);
+  padding: var(--espacio-1);
+  border-radius: var(--radio-xs);
+  transition: background-color var(--transicion-normal);
+}
+.sidebar-dash:hover{
+  background-color: var(--color-fondo-terciario);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .dashboard {
+    padding: var(--espacio-5);
+  }
+
+  .dashboard-header h1 {
+    font-size: var(--tamano-2xl);
+  }
+
+  .dashboard-header p {
+    font-size: var(--tamano-sm);
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .occupancy-content {
+    flex-direction: column;
+    padding: var(--espacio-6);
+  }
+
+  .occupancy-info {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .dashboard {
+    padding: var(--espacio-4);
+  }
+
+  .dashboard-header h1 {
+    font-size: var(--tamano-xl);
+  }
+
+  .dashboard-date {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .stat-card {
+    padding: var(--espacio-4);
+  }
+
+  .panel-header,
+  .activity-list,
+  .mini-reservations {
+    padding-left: var(--espacio-4);
+    padding-right: var(--espacio-4);
+  }
+
+}

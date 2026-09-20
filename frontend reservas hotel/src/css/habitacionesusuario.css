@@ -1,0 +1,453 @@
+/* HABITACIONES */
+
+main:has(.habitacion-usuario-card) {
+  width: 100%;
+  max-width: var(--contenedor-2xl);
+  margin: 0 auto;
+  padding: var(--relleno-seccion-vertical) var(--relleno-seccion-horizontal);
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espacio-8);
+
+}
+
+
+/* TARJETA */
+
+.habitacion-usuario-card {
+  width: 100%;
+
+  background-color: var(--color-superficie);
+
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-md);
+
+  overflow: hidden;
+
+  box-shadow: var(--sombra-sm);
+
+  transition:
+    transform var(--transicion-normal),
+    box-shadow var(--transicion-normal),
+    border-color var(--transicion-normal);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.habitacion-usuario-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--color-borde-oscuro);
+
+  box-shadow: var(--sombra-lg);
+}
+
+
+/* IMAGEN */
+
+.habitacion-usuario-imagen {
+  position: relative;
+
+  width: 100%;
+  height: 250px;
+
+  overflow: hidden;
+
+  background-color: var(--color-fondo-terciario);
+}
+
+.habitacion-usuario-imagen img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform var(--transicion-lenta);
+}
+
+.habitacion-usuario-card:hover
+.habitacion-usuario-imagen img {
+  transform: scale(1.04);
+}
+
+
+/* ESTADO */
+
+.habitacion-usuario-estado {
+  position: absolute;
+
+  top: var(--espacio-4);
+  right: var(--espacio-4);
+
+  padding: var(--espacio-1) var(--espacio-3);
+
+  border-radius: var(--radio-sm);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  background-color: var(--color-superficie);
+  color: var(--color-texto);
+
+  box-shadow: var(--sombra-sm);
+}
+
+
+/* DISPONIBLE */
+
+.habitacion-usuario-estado-disponible {
+  color: var(--color-exito);
+}
+
+
+/* OCUPADA */
+
+.habitacion-usuario-estado-ocupada {
+  color: var(--color-peligro);
+}
+
+
+/* RESERVADA */
+
+.habitacion-usuario-estado-reservada {
+  color: var(--color-advertencia);
+}
+
+
+/* CONTENIDO */
+
+.habitacion-usuario-contenido {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: var(--espacio-6);
+}
+
+
+/* HEADER */
+
+.habitacion-usuario-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--espacio-4);
+
+  padding-bottom: var(--espacio-5);
+
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+
+/* NUMERO */
+
+.habitacion-usuario-numero {
+  display: block;
+
+  margin-bottom: var(--espacio-2);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+
+  color: var(--color-principal);
+
+  letter-spacing: 0.10em;
+}
+
+
+/* TITULO */
+
+.habitacion-usuario-titulo {
+  margin: 0;
+
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-normal);
+
+  line-height: var(--altura-linea-ajustada);
+
+  color: var(--color-texto);
+}
+
+
+/* PRECIO */
+
+.habitacion-usuario-precio {
+  display: flex;
+  align-items: baseline;
+
+  white-space: nowrap;
+}
+
+.habitacion-usuario-precio strong {
+  font-family: var(--fuente-principal);
+
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-semi-negrita);
+
+  color: var(--color-principal-oscuro);
+}
+
+.habitacion-usuario-precio span {
+  margin-left: var(--espacio-1);
+
+  font-size: var(--tamano-xs);
+
+  color: var(--color-texto-apagado);
+}
+
+
+/* DESCRIPCION */
+
+.habitacion-usuario-descripcion {
+  margin: var(--espacio-5) 0 var(--espacio-6);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+
+  line-height: var(--altura-linea-relajada);
+
+  color: var(--color-texto-secundario);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* DATOS */
+
+.habitacion-usuario-datos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: var(--ancho-borde) solid var(--color-borde-claro);
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+
+  margin-bottom: var(--espacio-5);
+}
+
+.habitacion-usuario-datos > div {
+  min-width: 0;
+
+  padding: var(--espacio-4) var(--espacio-2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  border-right: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.habitacion-usuario-datos > div:last-child {
+  border-right: none;
+}
+
+
+/* ICONOS */
+
+.habitacion-usuario-datos > div > span {
+  margin-bottom: var(--espacio-1);
+
+  font-size: var(--tamano-md);
+
+  opacity: 0.8;
+}
+
+
+/* VALORES */
+
+.habitacion-usuario-datos strong {
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+
+  color: var(--color-texto);
+}
+
+
+/* TEXTO */
+
+.habitacion-usuario-datos small {
+  margin-top: var(--espacio-1);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-xs);
+
+  color: var(--color-texto-apagado);
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+
+/* SERVICIOS */
+
+.habitacion-usuario-servicios {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--espacio-2);
+
+  margin-bottom: var(--espacio-6);
+}
+
+.habitacion-usuario-servicios span {
+  padding: var(--espacio-1) var(--espacio-2);
+
+  border: var(--ancho-borde) solid var(--color-borde);
+
+  border-radius: var(--radio-sm);
+
+  background-color: var(--color-fondo);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-xs);
+
+  color: var(--color-texto-secundario);
+
+  transition:
+    background-color var(--transicion-rapida),
+    border-color var(--transicion-rapida);
+}
+
+.habitacion-usuario-servicios span:hover {
+  background-color: var(--color-fondo-secundario);
+  border-color: var(--color-borde-oscuro);
+}
+
+
+/* FOOTER */
+
+.habitacion-usuario-footer {
+  margin-top: auto;
+
+  padding-top: var(--espacio-5);
+
+  border-top: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+
+/* BOTON */
+
+.habitacion-usuario-btn {
+  width: 100%;
+  height: var(--altura-boton-md);
+
+  padding: 0 var(--relleno-boton-x);
+
+  border: var(--ancho-borde) solid var(--color-principal);
+
+  border-radius: var(--radio-sm);
+
+  background-color: var(--color-principal);
+
+  color: var(--color-texto-sobre-principal);
+
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transicion-normal),
+    border-color var(--transicion-normal),
+    transform var(--transicion-rapida);
+}
+
+.habitacion-usuario-btn:hover:not(:disabled) {
+  background-color: var(--color-principal-oscuro);
+  border-color: var(--color-principal-oscuro);
+
+  transform: translateY(-1px);
+}
+
+
+/* BOTON DESHABILITADO */
+
+.habitacion-usuario-btn:disabled {
+  background-color: var(--color-fondo-terciario);
+  border-color: var(--color-borde);
+
+  color: var(--color-texto-apagado);
+
+  cursor: not-allowed;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+  main:has(.habitacion-usuario-card) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* MOVIL */
+
+@media (max-width: 700px) {
+
+  main:has(.habitacion-usuario-card) {
+    grid-template-columns: 1fr;
+
+    padding-top: var(--espacio-10);
+    padding-bottom: var(--espacio-10);
+  }
+
+  .habitacion-usuario-imagen {
+    height: 230px;
+  }
+
+  .habitacion-usuario-contenido {
+    padding: var(--espacio-5);
+  }
+
+}
+
+
+/* MOVIL PEQUEÑO */
+
+@media (max-width: 420px) {
+
+  .habitacion-usuario-header {
+    flex-direction: column;
+    gap: var(--espacio-3);
+  }
+
+  .habitacion-usuario-precio {
+    align-self: flex-start;
+  }
+
+  .habitacion-usuario-datos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .habitacion-usuario-datos > div:nth-child(2) {
+    border-right: none;
+  }
+
+  .habitacion-usuario-datos > div:nth-child(1),
+  .habitacion-usuario-datos > div:nth-child(2) {
+    border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+  }
+
+}

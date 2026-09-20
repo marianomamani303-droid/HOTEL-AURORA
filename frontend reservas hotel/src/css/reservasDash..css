@@ -1,0 +1,413 @@
+/* RESERVAS DASHBOARD */
+
+.pagina-cuenta {
+  width: min(
+    calc(100% - 2 * var(--relleno-seccion-horizontal)),
+    var(--contenedor-xl)
+  );
+
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: var(--relleno-seccion-vertical) 0;
+}
+
+
+/* ENCABEZADO */
+
+.cuenta-encabezado {
+  max-width: 680px;
+  margin-bottom: var(--espacio-8);
+}
+
+.cuenta-encabezado .etiqueta {
+  margin-bottom: var(--espacio-2);
+  color: var(--color-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cuenta-encabezado h1 {
+  margin: 0 0 var(--espacio-3);
+  color: var(--color-secundario);
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-3xl);
+  font-weight: var(--peso-negrita);
+  line-height: var(--altura-linea-ajustada);
+}
+
+.cuenta-encabezado p:last-child {
+  margin: 0;
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-md);
+  line-height: var(--altura-linea-relajada);
+}
+
+
+/* MENSAJES */
+
+.cuenta-estado {
+  padding: var(--espacio-6);
+  border: var(--ancho-borde) solid var(--color-borde-claro);
+  border-radius: var(--radio-tarjeta);
+  background: var(--color-superficie);
+  box-shadow: var(--sombra-tarjeta);
+  color: var(--color-texto-secundario);
+}
+
+.cuenta-estado-error {
+  border-color: var(--color-peligro);
+  background: var(--color-peligro-claro);
+  color: var(--color-peligro);
+}
+
+
+/* LISTA */
+
+.reservas-lista {
+  display: grid;
+  gap: var(--espacio-5);
+}
+
+
+/* TARJETA */
+
+.reserva-card {
+  overflow: hidden;
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--color-superficie);
+  box-shadow: var(--sombra-tarjeta);
+
+  transition:
+    transform var(--transicion-normal),
+    box-shadow var(--transicion-normal),
+    border-color var(--transicion-normal);
+}
+
+.reserva-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-borde-oscuro);
+  box-shadow: var(--sombra-md);
+}
+
+
+/* ENCABEZADO DE RESERVA */
+
+.reserva-card-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-6);
+  padding: var(--espacio-6);
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.reserva-card-etiqueta {
+  display: block;
+  margin-bottom: var(--espacio-1);
+  color: var(--color-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.reserva-card h2 {
+  margin: 0 0 var(--espacio-1);
+  color: var(--color-secundario);
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-negrita);
+  line-height: var(--altura-linea-ajustada);
+}
+
+.reserva-card-encabezado p {
+  margin: 0;
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-sm);
+}
+
+
+/* ESTADO */
+
+.reserva-card-estado-contenedor {
+  text-align: right;
+}
+
+.reserva-card-estado-contenedor > span {
+  display: block;
+  margin-bottom: var(--espacio-2);
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.reserva-card-estado {
+  display: inline-block;
+  padding: var(--espacio-1) var(--espacio-3);
+
+  border: var(--ancho-borde) solid transparent;
+  border-radius: var(--radio-md);
+
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-semi-negrita);
+  line-height: var(--altura-linea-normal);
+  text-transform: uppercase;
+}
+
+.reserva-card-estado-pendiente {
+  border-color: var(--color-advertencia);
+  background: var(--color-advertencia-claro);
+  color: var(--color-advertencia);
+}
+
+.reserva-card-estado-confirmada,
+.reserva-card-estado-confirmado {
+  border-color: var(--color-exito);
+  background: var(--color-exito-claro);
+  color: var(--color-exito);
+}
+
+.reserva-card-estado-cancelada,
+.reserva-card-estado-cancelado {
+  border-color: var(--color-peligro);
+  background: var(--color-peligro-claro);
+  color: var(--color-peligro);
+}
+
+.reserva-card-estado-sin-estado {
+  border-color: var(--color-borde);
+  background: var(--color-fondo-terciario);
+  color: var(--color-texto-secundario);
+}
+
+
+/* DATOS */
+
+.reserva-card-datos {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.reserva-card-datos > div {
+  min-width: 0;
+  padding: var(--espacio-6);
+  border-right: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.reserva-card-datos > div:nth-child(5) {
+  border-right: 0;
+}
+
+
+/* PRECIO */
+
+.reserva-card-datos > div:nth-child(6) {
+  grid-column: 1 / -1;
+
+  border-top: var(--ancho-borde) solid var(--color-borde-claro);
+  border-right: 0;
+
+  background: var(--color-fondo-secundario);
+}
+
+.reserva-card-datos > div:nth-child(6) span {
+  color: var(--color-principal-oscuro);
+}
+
+.reserva-card-datos > div:nth-child(6) strong {
+  color: var(--color-principal-oscuro);
+  font-size: var(--tamano-lg);
+  font-weight: var(--peso-negrita);
+}
+
+.reserva-card-datos span {
+  display: block;
+  margin-bottom: var(--espacio-2);
+
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.04em;
+  line-height: var(--altura-linea-normal);
+  text-transform: uppercase;
+}
+
+.reserva-card-datos strong {
+  display: block;
+
+  color: var(--color-secundario);
+  font-size: var(--tamano-md);
+  font-weight: var(--peso-semi-negrita);
+  line-height: var(--altura-linea-normal);
+
+  overflow-wrap: anywhere;
+}
+
+
+/* PIE */
+
+.reserva-card-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-5);
+
+  padding: var(--espacio-4) var(--espacio-6);
+
+  border-top: var(--ancho-borde) solid var(--color-borde-claro);
+  background: var(--color-superficie-hover);
+}
+
+.reserva-card-pie > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+}
+
+.reserva-card-pie span {
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.reserva-card-pie strong {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-medio);
+}
+
+
+/* ENFOQUE */
+
+.reserva-card:focus-within {
+  box-shadow: var(--sombra-enfoque);
+}
+
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+  .reserva-card-datos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .reserva-card-datos > div:nth-child(3) {
+    border-right: 0;
+  }
+
+  .reserva-card-datos > div:nth-child(1),
+  .reserva-card-datos > div:nth-child(2),
+  .reserva-card-datos > div:nth-child(3) {
+    border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+  }
+
+  .reserva-card-datos > div:nth-child(4),
+  .reserva-card-datos > div:nth-child(5) {
+    border-right: 0;
+  }
+
+}
+
+
+/* TABLET PEQUEÑA */
+
+@media (max-width: 768px) {
+
+  .pagina-cuenta {
+    padding-top: var(--espacio-8);
+    padding-bottom: var(--espacio-12);
+  }
+
+  .cuenta-encabezado {
+    margin-bottom: var(--espacio-6);
+  }
+
+  .cuenta-encabezado h1 {
+    font-size: var(--tamano-2xl);
+  }
+
+  .reserva-card-encabezado {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .reserva-card-estado-contenedor {
+    text-align: left;
+  }
+
+  .reserva-card-datos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reserva-card-datos > div {
+    padding: var(--espacio-5);
+  }
+
+  .reserva-card-datos > div:nth-child(2),
+  .reserva-card-datos > div:nth-child(4) {
+    border-right: 0;
+  }
+
+  .reserva-card-datos > div:nth-child(5) {
+    border-right: 0;
+    border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+  }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 520px) {
+
+  .pagina-cuenta {
+    width: calc(100% - 2 * var(--espacio-4));
+    padding-top: var(--espacio-8);
+    padding-bottom: var(--espacio-10);
+  }
+
+  .cuenta-encabezado h1 {
+    font-size: var(--tamano-xl);
+  }
+
+  .reservas-lista {
+    gap: var(--espacio-4);
+  }
+
+  .reserva-card-encabezado {
+    padding: var(--espacio-5);
+  }
+
+  .reserva-card h2 {
+    font-size: var(--tamano-lg);
+  }
+
+  .reserva-card-datos {
+    grid-template-columns: 1fr;
+  }
+
+  .reserva-card-datos > div {
+    padding: var(--espacio-4) var(--espacio-5);
+    border-right: 0;
+    border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+  }
+
+  .reserva-card-datos > div:nth-child(6) {
+    border-bottom: 0;
+  }
+
+  .reserva-card-pie {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: var(--espacio-4) var(--espacio-5);
+  }
+
+}

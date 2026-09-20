@@ -1,0 +1,249 @@
+:root {
+  /* ================================
+     COLORES — MARCA
+  ================================= */
+
+  --color-principal: #8B6F47;
+  --color-principal-oscuro: #6F5738;
+  --color-principal-claro: #B79A6A;
+
+  --color-secundario: #2F4F4F;
+  --color-secundario-oscuro: #243D3D;
+  --color-secundario-claro: #547070;
+
+  --color-acento: #C49A6C;
+  --color-acento-claro: #DFC29A;
+
+
+  /* ================================
+     COLORES — FONDOS
+  ================================= */
+
+  --color-fondo: #F8F6F1;
+  --color-fondo-secundario: #F1EDE5;
+  --color-fondo-terciario: #E8E1D5;
+
+  --color-superficie: #FFFFFF;
+  --color-superficie-hover: #FAF9F6;
+  --color-fondo-oscuro: #243D3D;
+
+  --color-superposicion: rgba(20, 20, 20, 0.45);
+
+
+  /* ================================
+     COLORES — TEXTO
+  ================================= */
+
+  --color-texto: #252525;
+  --color-texto-secundario: #5F5F5F;
+  --color-texto-apagado: #858585;
+
+  --color-texto-claro: #FFFFFF;
+  --color-texto-sobre-principal: #FFFFFF;
+
+
+  /* ================================
+     COLORES — ESTADOS
+  ================================= */
+
+  --color-exito: #3F7D58;
+  --color-exito-claro: #E5F1E9;
+
+  --color-advertencia: #B98527;
+  --color-advertencia-claro: #FFF3D8;
+
+  --color-peligro: #B84C4C;
+  --color-peligro-claro: #F9E5E5;
+
+  --color-informacion: #467A9B;
+  --color-informacion-claro: #E5F0F7;
+
+
+  /* ================================
+     BORDES
+  ================================= */
+
+  --color-borde: #DED8CE;
+  --color-borde-claro: #ECE8E1;
+  --color-borde-oscuro: #C6BFB3;
+
+  --ancho-borde: 1px;
+
+
+  /* ================================
+     BORDES REDONDEADOS
+  ================================= */
+
+  
+  --radio-xs: 2px;
+  --radio-sm: 4px;
+  --radio-md: 6px;
+  --radio-lg: 8px;
+  --radio-xl: 10px;
+
+  --radio-completo: 9999px;
+
+
+
+  /* ================================
+     SOMBRAS
+  ================================= */
+
+  --sombra-sm:
+    0 2px 6px rgba(0, 0, 0, 0.06);
+
+  --sombra-md:
+    0 6px 18px rgba(0, 0, 0, 0.08);
+
+  --sombra-lg:
+    0 12px 35px rgba(0, 0, 0, 0.12);
+
+  --sombra-xl:
+    0 20px 50px rgba(0, 0, 0, 0.16);
+
+
+  /* ================================
+     ESPACIADO
+  ================================= */
+
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 20px;
+  --espacio-6: 24px;
+  --espacio-8: 32px;
+  --espacio-10: 40px;
+  --espacio-12: 48px;
+  --espacio-16: 64px;
+  --espacio-20: 80px;
+  --espacio-24: 96px;
+
+
+  /* ================================
+     TIPOGRAFÍA
+  ================================= */
+
+  --fuente-principal: "Inter", sans-serif;
+  --fuente-titulos: "Playfair Display", serif;
+
+  --tamano-xs: 0.75rem;
+  --tamano-sm: 0.875rem;
+  --tamano-md: 1rem;
+  --tamano-lg: 1.125rem;
+  --tamano-xl: 1.5rem;
+  --tamano-2xl: 2rem;
+  --tamano-3xl: 2.75rem;
+  --tamano-4xl: 3.5rem;
+  --tamano-5xl: 4.5rem;
+
+
+  /* ================================
+     PESOS DE FUENTE
+  ================================= */
+
+  --peso-ligero: 300;
+  --peso-normal: 400;
+  --peso-medio: 500;
+  --peso-semi-negrita: 600;
+  --peso-negrita: 700;
+
+
+  /* ================================
+     ALTURA DE LÍNEA
+  ================================= */
+
+  --altura-linea-ajustada: 1.1;
+  --altura-linea-normal: 1.5;
+  --altura-linea-relajada: 1.7;
+
+
+  /* ================================
+     TRANSICIONES
+  ================================= */
+
+  --transicion-rapida: 150ms ease;
+  --transicion-normal: 250ms ease;
+  --transicion-lenta: 400ms ease;
+  --sombra-enfoque: 0 0 0 3px rgba(139, 111, 71, 0.12);
+
+
+  /* ================================
+     CONTENEDORES
+  ================================= */
+
+  --contenedor-sm: 640px;
+  --contenedor-md: 768px;
+  --contenedor-lg: 1024px;
+  --contenedor-xl: 1200px;
+  --contenedor-2xl: 1400px;
+
+
+  /* ================================
+     Z-INDEX
+  ================================= */
+
+  --z-dropdown: 1000;
+  --z-fijo: 1100;
+  --z-modal: 1200;
+  --z-notificacion: 1300;
+  --z-tooltip: 1400;
+
+
+  /* ================================
+     BOTONES
+  ================================= */
+
+  --altura-boton-sm: 36px;
+  --altura-boton-md: 44px;
+  --altura-boton-lg: 52px;
+
+  --relleno-boton-x: 24px;
+
+
+  /* ================================
+     INPUTS
+  ================================= */
+
+  --altura-input: 46px;
+  --relleno-input-x: 14px;
+
+  --fondo-input: var(--color-superficie);
+  --borde-input: var(--color-borde);
+  --input-enfoque: var(--color-principal);
+
+
+  /* ================================
+     ENCABEZADO
+  ================================= */
+
+  --altura-encabezado: 80px;
+
+
+  /* ================================
+     TARJETAS
+  ================================= */
+
+  --relleno-tarjeta: 24px;
+  --radio-tarjeta: var(--radio-lg);
+  --sombra-tarjeta: var(--sombra-sm);
+
+
+  /* ================================
+     IMÁGENES
+  ================================= */
+
+  --radio-imagen: var(--radio-lg);
+
+
+  /* ================================
+     DISEÑO
+  ================================= */
+
+  --relleno-seccion-vertical: clamp(3.5rem, 8vw, 6rem);
+  --relleno-seccion-horizontal: clamp(1rem, 4vw, 1.5rem);
+
+  --espacio-contenido: 32px;
+  --ancho-sidebar: 260px;
+  --ancho-sidebar-tablet: 230px;
+}

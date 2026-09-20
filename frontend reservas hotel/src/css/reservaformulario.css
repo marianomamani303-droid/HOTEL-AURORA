@@ -1,0 +1,243 @@
+
+/* FORMULARIO DE RESERVA */
+
+.formulario-reserva {
+  width: 100%;
+  max-width: 650px;
+  padding: var(--espacio-8);
+  background: var(--color-superficie);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-md);
+  box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+.reserva-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--espacio-6);
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.habitacion-info span {
+  display: block;
+  margin-bottom: var(--espacio-1);
+  color: var(--color-principal);
+  font-size: var(--tamano-xs);
+  font-weight: var(--peso-negrita);
+  letter-spacing: 1.5px;
+}
+
+.habitacion-info h2 {
+  margin: 0;
+  color: var(--color-secundario);
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-2xl);
+  font-weight: var(--peso-medio);
+  line-height: var(--altura-linea-ajustada);
+}
+
+.precio-info {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espacio-1);
+}
+
+.precio-info strong {
+  color: var(--color-secundario);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-negrita);
+}
+
+.precio-info span {
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-sm);
+}
+
+
+/* SECCIONES */
+
+.reserva-seccion {
+  padding: var(--espacio-6) 0;
+  border-bottom: var(--ancho-borde) solid var(--color-borde-claro);
+}
+
+.reserva-seccion h3 {
+  margin: 0 0 var(--espacio-4);
+  color: var(--color-secundario);
+  font-size: var(--tamano-lg);
+  font-weight: var(--peso-semi-negrita);
+}
+
+
+/* CAMPOS */
+
+.entrada-y-salida,
+.ninos-y-adultos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+}
+
+.campo-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.campo-reserva label {
+  color: var(--color-texto);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-medio);
+}
+
+.campo-reserva input {
+  width: 100%;
+  height: var(--altura-input);
+  padding: 0 var(--relleno-input-x);
+  border: var(--ancho-borde) solid var(--borde-input);
+  border-radius: var(--radio-sm);
+  background: var(--fondo-input);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    border-color var(--transicion-rapida),
+    box-shadow var(--transicion-rapida);
+}
+
+.campo-reserva input:hover {
+  border-color: var(--color-borde-oscuro);
+}
+
+.campo-reserva input:focus {
+  border-color: var(--input-enfoque);
+  box-shadow: var(--sombra-enfoque);
+}
+
+.campo-reserva small {
+  color: var(--color-texto-apagado);
+  font-size: var(--tamano-xs);
+}
+
+
+/* RESUMEN */
+
+.reserva-resumen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-5);
+  padding: var(--espacio-6) 0;
+}
+
+.cantidad-noches {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.cantidad-noches span,
+.total-reserva span {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-medio);
+}
+
+.cantidad-noches input {
+  width: 70px;
+  height: var(--altura-boton-md);
+  padding: 0 var(--espacio-2);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  background: var(--color-fondo-secundario);
+  color: var(--color-secundario);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-sm);
+  font-weight: var(--peso-semi-negrita);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.total-reserva {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+}
+
+.total-reserva strong {
+  color: var(--color-secundario);
+  font-size: var(--tamano-xl);
+  font-weight: var(--peso-negrita);
+}
+
+
+/* BOTON */
+
+.reserva-btn {
+  width: 100%;
+  height: var(--altura-boton-lg);
+  padding: 0 var(--relleno-boton-x);
+  border: none;
+  border-radius: var(--radio-sm);
+  background: var(--color-principal);
+  color: var(--color-texto-sobre-principal);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-md);
+  font-weight: var(--peso-semi-negrita);
+  cursor: pointer;
+  transition:
+    background var(--transicion-normal),
+    transform var(--transicion-rapida);
+}
+
+.reserva-btn:hover {
+  background: var(--color-principal-oscuro);
+}
+
+.reserva-btn:active {
+  transform: translateY(1px);
+}
+
+.reserva-btn:focus-visible {
+  outline: 2px solid var(--color-principal-claro);
+  outline-offset: 3px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+  .formulario-reserva {
+    padding: var(--espacio-6);
+  }
+
+  .entrada-y-salida,
+  .ninos-y-adultos {
+    grid-template-columns: 1fr;
+  }
+
+  .reserva-header {
+    align-items: flex-start;
+    gap: var(--espacio-4);
+  }
+
+  .reserva-resumen {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cantidad-noches,
+  .total-reserva {
+    justify-content: space-between;
+  }
+
+}
+

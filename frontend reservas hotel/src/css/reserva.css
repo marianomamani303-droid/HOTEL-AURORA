@@ -1,0 +1,37 @@
+.pagina-reserva {
+  display: flex;
+  justify-content: center;
+  padding: var(--espacio-10) var(--espacio-4);
+  min-height: 60vh;
+}
+
+.reserva-vacia {
+  width: 100%;
+  max-width: 650px;
+  align-self: flex-start;
+  padding: var(--espacio-8);
+  border: var(--ancho-borde) solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  background: var(--color-superficie);
+  box-shadow: var(--sombra-md);
+  text-align: center;
+}
+
+.reserva-vacia h1 {
+  margin-bottom: var(--espacio-3);
+  font-size: var(--tamano-2xl);
+}
+
+.reserva-vacia p {
+  margin-bottom: var(--espacio-6);
+}
+
+@media (max-width: 600px) {
+  .pagina-reserva {
+    padding: var(--espacio-6) var(--espacio-4);
+  }
+
+  .reserva-vacia {
+    padding: var(--espacio-6);
+  }
+}
